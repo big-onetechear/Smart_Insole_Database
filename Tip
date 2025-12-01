@@ -1,0 +1,58 @@
+测试驱动开发：
+
+为每个模块编写
+测试块 
+诊断块
+
+最后
+模块协同工作块
+
+text
+Smart_Insole_Project/
+├── Rep_code/                    # 代码目录
+│   ├── DataLoading.py          # 数据加载模块
+│   │   └── SmartInsoleDataset  # 数据集类
+│   ├── modelArch.py            # 基础模型架构
+│   │   ├── DenseBlock          # 密集块
+│   │   └── PaperCrossAttention # 交叉注意力
+│   ├── modelAssemb.py          # 模型组装
+│   │   └── PaperFusionModel    # 完整融合模型
+│   ├── LearnMethod.py          # 训练机制
+│   │   ├── TrainingConfig      # 训练配置
+│   │   ├── SmartTrainingManager# 训练管理器
+│   │   └── ModelEvaluator      # 模型评估
+│   └── test_mode.py           # 集成测试
+└── subject_*/                  # 数据目录
+    └── *.csv                  # 传感器数据
+
+训练流程
+# 1. 创建配置
+config = TrainingConfig(batch_size=64, learning_rate=0.001)
+
+# 2. 创建模型和训练器
+model = PaperFusionModel()
+manager = SmartTrainingManager(model, config)
+
+# 3. 训练
+history = manager.fit(train_loader, val_loader)
+
+# 4. 评估
+results = ModelEvaluator.evaluate(model, test_loader)
+
+输入特征：
+CapSense压力传感器：18个（ele_0 到 ele_17）
+
+IMU传感器：7个（ele_18 到 ele_24，可能是加速度计和陀螺仪）
+
+输出标签：
+Fx_norm：X轴地面反作用力
+
+Fy_norm：Y轴地面反作用力
+
+Fz_norm：Z轴地面反作用力
+
+
+数据集大小: 21280
+训练集: 14895 (70%)
+验证集: 3192 (15%)  
+测试集: 3193 (15%)

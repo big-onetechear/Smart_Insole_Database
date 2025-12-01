@@ -1,0 +1,18 @@
+==================================================
+Training Report: subject_1 - jogging
+==================================================
+
+Subject: subject_1
+Movement: jogging
+Training Time: 58.37 seconds
+Model Parameters: 118,367
+
+Performance Metrics:
+  Best Val Loss: 0.420460
+  Final Val Loss: 0.421084
+  R² Score: 0.0000
+  RMSE: 0.0000
+  MSE: 0.000000
+  MAE: 0.000000
+
+Correlation Coefficients:
