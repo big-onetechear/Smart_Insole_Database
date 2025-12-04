@@ -4,8 +4,22 @@
 # 提取7个IMU特征（加速度计+陀螺仪）
 # 提取3个地面反作用力标签
 # 输出：标准化后的PyTorch张量
+
+# 传感器列分类
+CAPSENSE_COLS = [f'ele_{i}' for i in range(12)] + [f'ele_{i}' for i in [18,19,20,22,23]]
+# ele_0-ele_11: 右脚CapSense (12个)
+# ele_18-ele_20, ele_22-ele_23: 左脚CapSense (5个？需要确认)
+
+# IMU传感器列
+ACCEL_COLS = [f'ele_{i}' for i in range(24, 30)]      # ele_24-ele_29: 加速度计
+GYRO_COLS = [f'ele_{i}' for i in range(30, 36)]       # ele_30-ele_35: 陀螺仪
+
+# GRF标签列
+GRF_RAW = ['Fx', 'Fy', 'Fz']                         # 原始GRF
+GRF_NORM = ['Fx_norm', 'Fy_norm', 'Fz_norm']         # 已除以体重
+
 # DataLoading.py
-# DataLoading.py - 修复版
+
 import pandas as pd
 import torch
 from torch.utils.data import Dataset
