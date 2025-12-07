@@ -1,0 +1,12 @@
+{
+  "subject_id": 5,
+  "activity": "walking",
+  "raw_file": "D:\\TG0\\PublicData_Rep\\Smart_Insole_Database\\subject_5\\walking_s5_merged.csv",
+  "status": "success",
+  "stage1_status": "success",
+  "stage2_status": "success",
+  "stage3_status": "success",
+  "error_messages": [],
+  "processing_time": 1.071873,
+  "timestamp": "2025-12-07T22:01:45.921989"
+}

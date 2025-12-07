@@ -1,0 +1,14 @@
+{
+  "subject_id": 2,
+  "activity": "jump_fb",
+  "raw_file": "D:\\TG0\\PublicData_Rep\\Smart_Insole_Database\\subject_2\\jump_fb_s2_merged.csv",
+  "status": "failed",
+  "stage1_status": "failed",
+  "stage2_status": "pending",
+  "stage3_status": "pending",
+  "error_messages": [
+    "阶段1: 输出文件不存在: D:\\TG0\\PublicData_Rep\\Smart_Insole_Database\\subjectRepro2\\jump_fb_s2_model_ready.csv"
+  ],
+  "processing_time": 0.575527,
+  "timestamp": "2025-12-07T21:26:02.908474"
+}
