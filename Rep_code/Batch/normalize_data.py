@@ -2,6 +2,8 @@
 normalize_data.py
 数据归一化代码 - 根据检查结果实现论文预处理
 """
+
+
 # jogging, jump_fb, jump_inplace, squatting, swaying, walking
 import pandas as pd
 import numpy as np

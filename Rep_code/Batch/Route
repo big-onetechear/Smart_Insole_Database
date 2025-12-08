@@ -1,0 +1,59 @@
+# CapSense数据范围：应该在 [0, 1] 之间（归一化后）
+
+# IMU数据范围：
+
+# 加速度计 (Ax, Ay, Az)：应该在 [-1, 1] 之间
+
+# 陀螺仪 (Gp, Gr)：可能也需要归一化到 [0, 1] 或 [-1, 1]
+
+# 标签范围：应该在 [0, 1] 之间（归一化后）
+
+输入流：
+
+CapSense流：12维 → Dense Block 1 → 32维
+
+IMU流：5维 → Dense Block 2 → 32维
+
+交叉注意力：
+
+CapSense作为Query，IMU作为Key/Value
+
+IMU作为Query，CapSense作为Key/Value
+
+
+; 双流结构：CapSense流（12维）和IMU流（5维：3加速度+2陀螺仪）分开处理
+
+; Dense Block 1 & 2：将两个流投影到相同维度
+
+特征融合：
+
+两个注意力输出拼接（64维）
+
+Dense Block 3 → 3维输出（GRF预测）
+
+
+
+
+
+
+
+
+交叉注意力机制：
+
+CapSense流作为Query，IMU流作为Key/Value
+
+IMU流作为Query，CapSense流作为Key/Value
+
+特征拼接：注意力输出拼接后送入Dense Block 3
+
+
+回归层：输出3维GRF
+
+Dense Block 1：处理CapSense流（12→32维）
+
+Dense Block 2：处理IMU流（5→32维）
+
+
+交叉注意力：双向注意力机制
+
+Dense Block 3：融合特征（64→3维）
